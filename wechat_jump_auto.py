@@ -81,7 +81,7 @@ def jump(distance):
     跳跃一定的距离
     '''
     press_time = distance * press_coefficient
-    press_time = max(press_time, 100)   # 设置 200ms 是最小的按压时间
+    press_time = max(press_time, 150)   # 设置 200ms 是最小的按压时间
     press_time = int(press_time)
     cmd = 'adb shell input swipe {x1} {y1} {x2} {y2} {duration}'.format(
         x1=swipe_x1,
@@ -254,9 +254,10 @@ def main():
             #     sys.stdout.write('\r程序将在 {}s 后继续'.format(next_rest_time - j))
             #     sys.stdout.flush()
             #     time.sleep(1)
+            time.sleep(1)
             print('\n继续')
             i, next_rest, next_rest_time = 0, random.randrange(30, 100), random.randrange(10, 60)
-        time.sleep(random.uniform(0.9, 1.2))   # 为了保证截图的时候应落稳了，多延迟一会儿，随机值防 ban
+        time.sleep(1.5)   # 为了保证截图的时候应落稳了，多延迟一会儿，随机值防 ban
 
 
 if __name__ == '__main__':
